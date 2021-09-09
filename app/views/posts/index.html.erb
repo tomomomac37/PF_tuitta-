@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="new-posts">
+        <%= form_with model: @post, local:true do |f| %>
+          <%= f.text_area :body, class: "col-xs-12" %>
+        <%= f.submit "トゥイートする", class: "btn btn-primary col-xs-12" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

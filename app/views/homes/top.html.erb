@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>あなたの気持ちを、ここに</h1>
+      <h2 class="title">tuitta-を始めましょう</h4>
+      <p class="title-body">※トゥイッターと読みます</p>
+      <!--Google部分は後々にOAuthサインインを実装予定-->
+      <%= link_to "Googleで登録", new_user_registration_path, class: 'btn btn-primary' %>
+      <%= link_to "電話番号またはメールアドレスで登録", new_user_registration_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="sign_in">アカウントをお持ちの方は<%= link_to "ログイン", new_user_session_path, class: 'btn btn-primary' %></p>
+    </div>
+  </div>
+</div>
