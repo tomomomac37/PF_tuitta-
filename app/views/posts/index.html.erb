@@ -4,8 +4,9 @@
     <div class="col">
       <div class="new-posts">
         <%= form_with model: @post, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: @post %>
           <%= f.text_area :body, class: "col-xs-12" %>
-        <%= f.submit "トゥイートする", class: "btn btn-primary col-xs-12" %>
+          <%= f.submit "トゥイートする", class: "btn btn-primary col-xs-12" %>
         <% end %>
       </div>
     </div>
@@ -16,14 +17,9 @@
           <% @posts.each do |post| %>
           <!--ここの表示の仕方（トゥイートの表示のさせ方）は要検討です-->
             <tr>
-              <!--<td>-->
-                <!--投稿者のプロフィール画像を表示させる-->
-                <%#= link_to user_path(post.user) do %>
-                  <%#= attachment_image_tag post.user, :image, :fill, 50, 50,fallback: "no_image.jpg"%>
-                <%# end %>
-              <!--</td>-->
               <td><%= link_to post.body, post_path(post.id) %></td>
-              <td><%= post.user.name if post.user %></td>
+              <td><%#= post.user.name if post.user %></td>
+              <td><%= link_to_if post.user, post.user.name, user_path(post.user.id) %></td>
             </tr>
           <% end %>
         </tbody>
