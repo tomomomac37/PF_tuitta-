@@ -7,6 +7,7 @@
         <%= render 'layouts/error_messages', model: @post %>
           <%= f.text_area :body, class: "col-xs-12" %>
           <%= f.submit "トゥイートする", class: "btn btn-primary col-xs-12" %>
+          <%= f.attachment_field :image %>
         <% end %>
       </div>
     </div>
@@ -20,6 +21,7 @@
               <td><%= link_to post.body, post_path(post.id) %></td>
               <td><%#= post.user.name if post.user %></td>
               <td><%= link_to_if post.user, post.user.name, user_path(post.user.id) %></td>
+              <td><%= attachment_image_tag post, :image, format: 'jpeg', size: "100x100" %></td>
             </tr>
           <% end %>
         </tbody>

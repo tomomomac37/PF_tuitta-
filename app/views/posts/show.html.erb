@@ -2,10 +2,14 @@
   <div class="row">
     <div class="col-md-4">
       <h3><%= @post.body %></h3>
+      <%= attachment_image_tag @post, :image, :fill, 300, 300, format: 'jpeg' %>
       
     </div>
     <div class="col-md-4">
-      <%= link_to "トゥイートの削除", post_path(@post), method: :delete, class: "btn btn-primary" %>
+      <%= link_to_if @post.user, @post.user.name, user_path(@post.user.id) %>
+      <% if user_signed_in? && current_user.id == @post.user_id %>
+        <%= link_to "トゥイートの削除", post_path(@post), method: :delete, class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>

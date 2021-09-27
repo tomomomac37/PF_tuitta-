@@ -5,25 +5,22 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :posts
-         
-  # 被フォロー関係を通じて参照→followed_idをフォローしている人
-  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
-  has_many :followers, through: :reverse_of_relationships, source: :follower
-
-  # 【class_name: "Relationship"】は省略可能
-  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  # 与フォロー関係を通じて参照→follower_idをフォローしている人
-  has_many :followings, through: :relationships, source: :followed
-  
+  has_many :post_images, dependent: :destroy
+        
+  has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
+  has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
+  has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
+  has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
   
   def follow(user_id)
-    relationships.create(followed_id: user_id)
+    follower.create(followed_id: user_id)
   end
+
   def unfollow(user_id)
-    relationships.find_by(followed_id: user_id).destroy
+    follower.find_by(followed_id: user_id).destroy
   end
+
   def following?(user)
-    followings.include?(user)
+    following_user.include?(user)
   end
-  
 end

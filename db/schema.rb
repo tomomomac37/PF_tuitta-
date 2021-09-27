@@ -1,4 +1,4 @@
-# This file is auto-generated from the current statue of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_081317) do
+ActiveRecord::Schema.define(version: 2021_09_24_012645) do
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at", null: false
