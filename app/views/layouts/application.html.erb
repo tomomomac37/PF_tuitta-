@@ -12,29 +12,28 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
      <!--Custom Theme files -->
-    <link href="css/sign_up.style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/signup.style.scss" rel="stylesheet" type="text/css" media="all" />
      <!--//Custom Theme files -->
      web font 
     <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
      <!--//web font -->
+     <!--view毎のCSS設定-->
+     <%= yield :css %>
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-inverse">
-        <div class="container">
-          <ul class="navbar-nav nav navbar-right">
-            <% if user_signed_in? %>
-              <%= link_to "LOGO", posts_path %>
-              <li><%= link_to "マイページ", user_path(current_user) %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :logout %></li>
-            <% else %>
-              <%= link_to "LOGO", root_path %>
-              <li><%= link_to "新規登録", new_user_registration_path %></li>
-              <li><%= link_to "ログイン", new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </div>
+      <!--<% if user_signed_in? %>-->
+      
+      <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-default navbar-inverse">-->
+      <!--  <div class="container">-->
+      <!--    <ul class="navbar-nav nav navbar-right">-->
+      <!--      <li><%#= link_to "LOGO", posts_path %></li>-->
+      <!--      <li><%#= link_to "マイページ", user_path(current_user) %></li>-->
+      <!--      <li><%#= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: :logout %></li>-->
+      <!--<% end %>-->
+      <!--      </ul>-->
+      <!--    </div>-->
     </header>
     <%= yield %>
   </body>
