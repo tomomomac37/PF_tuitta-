@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post.user_id = current_user.id
     if @post.save
-      redirect_to post_path(@post.id)
+      redirect_to posts_path
       flash[:notice]="トゥイート成功"
     else
       render "index"

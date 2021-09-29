@@ -10,8 +10,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-2">
-      <script type="text/javascript" src="nav.js"></script>
-        <nav class="navbar">
+        <nav class="vartical-navbar">
             <ul class="navbar__menu">
                 <li class="navbar__item">
                     <a href="#" class="navbar__link"><i data-feather="home"></i><span>Home</span></a>
@@ -57,12 +56,16 @@
     <table class="table">
         <tbody>
           <% @posts.each do |post| %>
-          <!--ここの表示の仕方（トゥイートの表示のさせ方）は要検討です-->
             <tr>
-              <td><%= link_to post.body, post_path(post.id) %></td>
-              <td><%#= post.user.name if post.user %></td>
-              <td><%= link_to_if post.user, post.user.name, user_path(post.user.id) %></td>
-              <td><%= attachment_image_tag post, :image, format: 'jpeg', size: "100x100" %></td>
+              <td>
+                <%= link_to attachment_image_tag(post.user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100'), user_path(post.user.id) %>
+                <p><%= link_to_if post.user, post.user.name, user_path(post.user.id) %></p>
+              </td>
+              <td>
+                <%=safe_join(post.body.split("\n"),tag(:br))%>
+                <p><%= attachment_image_tag post, :image, format: 'jpeg', size: "100x100" %></p>
+              </td>
+              <td><%= l post.created_at, format: :default %></td>
             </tr>
           <% end %>
         </tbody>

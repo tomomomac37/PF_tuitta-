@@ -2,6 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+textarea {
+  background: #CCCCFF;
+}
+.btn {
+  margin: 5px;
+}
+td {
+  text-align: center;
+  background: #339999;
+}
+.profile_image {
+  border-radius: 50%;
+      width: 50px;
+      height: 50px;
+}
 .new-posts {
   text-align: center;
 }

@@ -1,5 +1,7 @@
 {
   "name": "tuitta-",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "feather-icons": "^4.28.0"
+  }
 }
