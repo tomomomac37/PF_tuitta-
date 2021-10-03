@@ -1,4 +1,18 @@
+# require 'digest/md5'
 class ApplicationController < ActionController::Base
+  
+  # before_action :authenticate
+
+  # REALM = 'SecretZone'.freeze
+  # USERS = { 'user1' => Digest::MD5.hexdigest(['user1', REALM, 'password'].join(':'))}.freeze
+
+  # private
+
+  # def authenticate
+  #   authenticate_or_request_with_http_digest(REALM) do |username|
+  #     USERS[username]
+  #   end
+  # end
   
   before_action :configure_permitted_parameters, if: :devise_controller?
 

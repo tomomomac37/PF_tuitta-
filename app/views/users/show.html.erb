@@ -1,70 +1,81 @@
 <% content_for :css do %>
     <%= stylesheet_link_tag 'users' %>
 <% end %>
-  <div class="img">
-      <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "500x500" %>
-  </div>
-      <h3><%= @user.name %></h3>
-      <p class="introduction"><%= @user.introduction %></p>
-      <% @posts.each do |post| %>
-            <tr>
-              <td>
-                
-                <p><%= link_to_if post.user, post.user.name, user_path(post.user.id) %></p>
-              </td>
-              <td>
-                <%=safe_join(post.body.split("\n"),tag(:br))%>
-                <p><%= attachment_image_tag post, :image, format: 'jpeg', size: "100x100" %></p>
-              </td>
-              <td><%= l post.created_at, format: :default %></td>
-            </tr>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-7">
+      <div class="img">
+          <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "500x500" %>
+      </div>
+          <h3><%= @user.name %></h3>
+          <p class="introduction"><%= @user.introduction %></p>
+          <% @posts.each do |post| %>
+                <tr>
+                  <td>
+                    
+                    <p><%= link_to_if post.user, post.user.name, user_path(post.user.id) %></p>
+                  </td>
+                  <td>
+                    <%=safe_join(post.body.split("\n"),tag(:br))%>
+                    <p><%= attachment_image_tag post, :image, format: 'jpeg', size: "100x100" %></p>
+                  </td>
+                  <td><%= l post.created_at, format: :default %></td>
+                </tr>
+              <% end %>
+        <div>
+          <% if @user.id == current_user.id %>
+            <p><%= link_to "プロフィール編集", edit_user_path(@user), remote: true, class: "btn btn-primary" %></p>
+              <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
           <% end %>
-    <div>
-      <% if @user.id == current_user.id %>
-        <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-      <% end %>
-    </div>
-      <% if current_user != @user %>
-        <% if current_user.following?(@user) %>
-          <%= link_to 'フォロー外す', user_relationships_path(@user.id), method: :delete %>
-        <% else %>
-          <%= link_to 'フォローする', user_relationships_path(@user.id), method: :POST %>
-        <% end %>
-      <% end %>
-    <div>
-      フォロー数： <%= current_user.follower.count %>
-      フォロワー数：<%= current_user.followed.count %>
-    </div><br><br>
-          <caption>フォロー中</caption>
-      <table class="pull-right">
-          <thead>
-              <tr>
-                  <th>ユーザー名</th>
-                  <th></th>
-              </tr>
-          </thead>
-          <tbody>
-              <% @following_users.each do |following_user| %>
-              <tr>
-                  <td><%= following_user.name %></td>
-                  <td><%= link_to 'フォロー外す', user_relationships_path(following_user.id), method: :delete %></td>
-              </tr>
-              <% end %>
-          </tbody>
-      </table><br><br>
-      
-      <table>
-          <caption>フォロワー</caption>
-          <thead>
-              <tr>
-                  <th>フォロワー名</th>
-              </tr>
-          </thead>
-          <tbody>
-              <% @follower_users.each do |follower_user| %>
-              <tr>
-                  <td><%= follower_user.name %></td>
-              </tr>
-              <% end %>
-          </tbody>
-      </table>
+        </div>
+          <% if current_user != @user %>
+            <% if current_user.following?(@user) %>
+              <%= link_to 'フォロー外す', user_relationships_path(@user.id), method: :delete %>
+            <% else %>
+              <%= link_to 'フォローする', user_relationships_path(@user.id), method: :POST %>
+            <% end %>
+          <% end %>
+          </div>
+          <div class="col-lg-3">
+        <div>
+          フォロー数： <%= current_user.follower.count %>
+          フォロワー数：<%= current_user.followed.count %>
+        </div><br><br>
+              <caption>フォロー中</caption>
+          <table class="pull-right">
+              <thead>
+                  <tr>
+                      <th>ユーザー名</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% @following_users.each do |following_user| %>
+                  <tr>
+                      <td><%= following_user.name %></td>
+                      <td><%= link_to 'フォロー外す', user_relationships_path(following_user.id), method: :delete %></td>
+                  </tr>
+                  <% end %>
+              </tbody>
+          </table><br><br>
+          
+              <caption>フォロワー</caption>
+          <table>
+              <thead>
+                  <tr>
+                      <th>フォロワー名</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% @follower_users.each do |follower_user| %>
+                  <tr>
+                      <td><%= follower_user.name %></td>
+                  </tr>
+                  <% end %>
+              </tbody>
+          </table>
+          </div>
+    
+  </div>
+</div>

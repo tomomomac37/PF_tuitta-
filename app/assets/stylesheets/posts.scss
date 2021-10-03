@@ -3,12 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.post {
+  height: 300px;
+  width: 700px;
+}
+
 textarea {
   background: #CCCCFF;
+  border-radius: 5px;
 }
+
 .btn {
   margin: 5px;
+  display: right;
 }
+
 td {
   text-align: center;
   background: #339999;
@@ -26,12 +35,12 @@ td {
 }
 
 #img_field {
-  font-size: 25px;
+  font-size: 15px;
   margin: 0 auto;
   color: white;
-  background-color: green;
+  background-color: blue;
   border-radius: 5px;
-  width: 300px;
+  width: 100px;
   height: 40px;
   text-align: center;
   line-height: 40px;

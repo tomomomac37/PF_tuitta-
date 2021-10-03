@@ -6,7 +6,7 @@
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= form_for(@user, url: user_session_path) do |f| %>
 	<%= f.email_field :email, autofocus: true, :class => 'input', :placeholder => 'Email' %><br/>
 	<%= f.password_field :password, autocomplete: "new-password", :class => 'input', :placeholder => 'Password' %><br/>
   <% if devise_mapping.rememberable? %>
