@@ -21,6 +21,6 @@ Rails.application.config.assets.precompile += %w(
     signup.css
     nav.css
     users.css
-    _nav.css
+    nav.css
     main_layouts.css
  )

@@ -3,8 +3,90 @@
     box-sizing: border-box;
 }
 
+form {
+    margin: 0 auto;
+}
+
+.post {
+  height: 180px;
+  width: 340px;
+  
+}
+
+textarea {
+  background: #eaeef6;
+  border-radius: 10px;
+  border: none;
+}
+
+.btn {
+  font-size: 15px;
+  margin: 0 auto;
+  color: black;
+  background-color: #eaeef6;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  cursor : pointer;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  &:hover {
+      color: #fff;
+      background-color: #0d6efd;
+      transition: 0.25s;
+  }
+  
+}
+
+td {
+  text-align: center;
+  background: #339999;
+}
+.profile_image {
+  border-radius: 50%;
+      width: 50px;
+      height: 50px;
+}
+
+.introduction {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    // background-color: #eaeef6;
+}
+.new-posts {
+  text-align: center;
+}
+.item_image_btn{
+    display: none;
+}
+
+.image_wrapper {
+    margin: 0 auto;
+    display: flex;
+    width: 340px;
+}
+
+#img_field {
+  font-size: 15px;
+  margin: 0 auto;
+  color: black;
+  background-color: #eaeef6;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  cursor : pointer;
+  font-family: 'DM Sans', sans-serif;
+  &:hover {
+      color: #fff;
+      background-color: #0d6efd;
+      transition: 0.25s;
+  }
+}
+
 :root {
-    --app-container: #f3f6fd;
+    --app-container: #eaeef6;
     --main-color: #1f1c2e;
     --secondary-color: #4A4A4A;
     --link-color: #1f1c2e;
@@ -482,6 +564,7 @@ a {
         flex-wrap: wrap;
         .project-box-wrapper {
             width: 33.3%;
+            word-wrap: break-word;
         }
     }
     &.jsListView {
@@ -491,6 +574,7 @@ a {
             position: relative;
             >* {
                 margin-right: 24px;
+                margin-bottom: 24px;
             }
         }
         .more-wrapper {
@@ -501,6 +585,7 @@ a {
         .project-box-content-header {
             order: 1;
             max-width: 120px;
+            overflow-wrap: break-word;
         }
         .project-box-header {
             order: 2;
@@ -736,6 +821,7 @@ a {
         z-index: 2;
         height: 100%;
         width: 100%;
+        display: flex;
         .messages-close {
             display: block;
         }
@@ -852,3 +938,8 @@ a {
         top: 10px;
     }
 }
+
+// .messages-section-wrapper {
+//     margin: 0 auto;
+//     display: flex;
+// }

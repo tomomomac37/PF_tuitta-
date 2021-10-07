@@ -1,0 +1,58 @@
+<% content_for :css do %>
+    <%= stylesheet_link_tag 'nav' %>
+    <%= stylesheet_link_tag 'posts' %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+      <%= render "common/sidebar" %>
+    </div>
+    <div class="col-lg-4">
+      <div class="new-posts">
+        <%= form_with model: @post, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: @post %>
+        <div class="post">
+          <%= f.text_area :body, size: "40x5", :placeholder => 'いまどんな気持ち？' %>
+          <div class="image_wrapper">
+            <div class="item_image_btn">
+              <%= f.attachment_field :image, id: "file" %>
+            </div>
+            <div id="img_field" onClick="$('#file').click()" >
+              <p class="image-select">画像選択</p>
+            </div>
+          </div>
+          <%= f.submit "トゥイートする", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+      </div>
+
+    <table class="table">
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+              <td>
+                <%= link_to attachment_image_tag(post.user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100'), user_path(post.user.id) %>
+                <p><%= link_to_if post.user, post.user.name, user_path(post.user.id) %></p>
+              </td>
+              <td>
+                <%=safe_join(post.body.split("\n"),tag(:br))%>
+                <p><%= attachment_image_tag post, :image, format: 'jpeg', size: "100x100" %></p>
+              </td>
+              <td><%= l post.created_at, format: :default %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+    
+  </div>
+</div>
+
+<div class="container">
+  
+<%= render "common/main_layouts" %>
+</div>
