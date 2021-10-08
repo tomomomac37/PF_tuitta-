@@ -1,2 +1,22 @@
-<!--<h1>ご登録ありがとうございます。</h1>-->
-<%= render "common/main_layouts" %>
+<h1>ご登録ありがとうございます。</h1>
+<script>
+    const vm = new Vue({
+    el: "#app",
+    data: {a: 30},
+    created: function() {
+      setInterval(() => { this.a-- }, 1000)
+    },
+    watch: {
+      a: function(v) {
+        if (v <= 0) {
+          document.location = "/"
+        }
+      }
+    }
+  })
+</script>
+<div id="app">
+  あと
+<input v-model.number="a" />
+秒
+</div>
