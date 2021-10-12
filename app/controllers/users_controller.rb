@@ -20,11 +20,13 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      format.js { @status = "success"}
-    else
-      render "edit"
-      format.js { @status = "fail"}
+    respond_to do |format|
+      if @user.update(user_params)
+        format.js { @status = "success"}
+      else
+        render "edit"
+        format.js { @status = "fail"}
+      end
     end
   end
   

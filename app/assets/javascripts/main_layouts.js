@@ -1,3 +1,5 @@
+// jquary
+// $(document).ready( function(){
 document.addEventListener('DOMContentLoaded', function() {
     // var modeSwitch = document.querySelector('.mode-switch');
 
@@ -31,4 +33,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // document.querySelector('.messages-close').addEventListener('click', function() {
     //     document.querySelector('.messages-section').classList.remove('show');
     // });
+    
+    // 縦三点リーダクリック時アクション
+    // var projectBtnMore = document.querySelector('.project-btn-more');
+    // var verticalThreeReader = document.querySelector('.vertical-three-reader');
+    
+    // projectBtnMore.addEventListener('click', function() {
+    //     // projectBtnMore.classList.add('verticalThreeReader');
+    //     projectBtnMore.classList.toggle('is-show');
+    //     verticalThreeReader.classList.toggle('is-show')
+    // })
+    
+    document.querySelector(".vertical-three-reader").style.visibility ="hidden";
+
+    function verticalThreeReader(){
+    	const verticalThreeReader = document.querySelector(".vertical-three-reader");
+    
+    	if(verticalThreeReader.style.visibility=="visible"){
+    		// hiddenで非表示
+    		verticalThreeReader.style.visibility ="hidden";
+    	}else{
+    		// visibleで表示
+    		verticalThreeReader.style.visibility ="visible";
+    	}
+}
+    
+    
 });
