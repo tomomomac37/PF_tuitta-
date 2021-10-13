@@ -11,19 +11,22 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
-    if @user == current_user
-      render "edit"
-    else
-      redirect_to posts_path
-    end
+    # if @user == current_user
+    #   render "edit"
+    # else
+    #   redirect_to posts_path
+    # end
   end
   
   def update
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to user_path(@user)
-    else
-      render "edit"
+    respond_to do |format|
+      if @user.update(user_params)
+        format.js { @status = "success"}
+      else
+        render "edit"
+        format.js { @status = "fail"}
+      end
     end
   end
   
@@ -36,7 +39,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :introduction)
+    params.require(:user).permit(:name, :introduction, :profile_image)
   end
   
 end

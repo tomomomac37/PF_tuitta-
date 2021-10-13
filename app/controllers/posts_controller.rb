@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all
+    @following_users = current_user.following_user
+    @follower_users = current_user.follower_user
   end
   
   def create
@@ -12,7 +14,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @post.user_id = current_user.id
     if @post.save
-      redirect_to post_path(@post.id)
+      redirect_to posts_path
       flash[:notice]="トゥイート成功"
     else
       render "index"
@@ -35,6 +37,6 @@ class PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:body, :image)
+    params.require(:post).permit(:body, :image, :user_id)
   end
 end
