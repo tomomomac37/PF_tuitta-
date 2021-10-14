@@ -150,17 +150,12 @@
                                       　<!--縦三点リーダ-->
                                       　<div class="vertical-three-reader">
                                       　    <ul>
-                                      　        <li><%= link_to "edit", edit_post_path(post.id) %></li>
-                                      　        <li><%= link_to "delete", post_path(post.id), method: :delete %></li>
+                                      　      <li> <%= link_to("Edit", edit_post_path(post.id), {class: "list-group-item list-group-item-action"}) %></li>
+                                              <li><%= link_to("Delete", post_path(post.id), {method: :delete, class: "list-group-item list-group-item-action"}) %></li>
                                       　    </ul>
                                       　</div>
                                   　</button>
                                 </div>
-                            </div>
-                            <div class="project-box-content-header">
-                                <!--<%= link_to(post_path(post)) do %>-->
-                                <!--    <p class="box-content-header "><%=safe_join(post.body.split("\n"),tag(:br))%></p>-->
-                                <!--<% end %>-->
                             </div>
                             <div class="box-progress-wrapper ">
                                 <!--<p class="box-progress-header ">Progress</p>-->
@@ -169,7 +164,9 @@
                                 <!--</div>-->
                                 <!--<p class="box-progress-percentage ">60%</p>-->
                                 <%= link_to(post_path(post), class:"no-underline") do %>
-                                    <p class="box-content-header "><%=safe_join(post.body.split("\n"),tag(:br))%></p>
+                                    <p class="box-content-header ">
+                                        <span><%=safe_join(post.body.split("\n"),tag(:br))%></span>
+                                    </p>
                                 <% end %>
                             </div>
                             <div class="project-box-footer ">

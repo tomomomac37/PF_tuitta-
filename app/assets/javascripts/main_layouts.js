@@ -44,19 +44,28 @@ document.addEventListener('DOMContentLoaded', function() {
     //     verticalThreeReader.classList.toggle('is-show')
     // })
     
-    document.querySelector(".vertical-three-reader").style.visibility ="hidden";
+//     document.querySelector(".vertical-three-reader").style.visibility ="hidden";
 
-    function verticalThreeReader(){
-    	const verticalThreeReader = document.querySelector(".vertical-three-reader");
+//     function verticalThreeReader(){
+//     	const verticalThreeReader = document.querySelector(".vertical-three-reader");
     
-    	if(verticalThreeReader.style.visibility=="visible"){
-    		// hiddenで非表示
-    		verticalThreeReader.style.visibility ="hidden";
-    	}else{
-    		// visibleで表示
-    		verticalThreeReader.style.visibility ="visible";
-    	}
-}
+//     	if(verticalThreeReader.style.visibility=="visible"){
+//     		// hiddenで非表示
+//     		verticalThreeReader.style.visibility ="hidden";
+//     	}else{
+//     		// visibleで表示
+//     		verticalThreeReader.style.visibility ="visible";
+//     	}
+// }
+       const toggleMenu = ({ currentTarget }) => {
+       const menu = currentTarget.querySelector('.vertical-three-reader');
+       menu.style.visibility = menu.style.visibility !== 'hidden' ? 'hidden' : 'visible'
+   }
+ 
+       document.querySelectorAll('.project-btn-more').forEach(btn => {
+           toggleMenu({ currentTarget: btn });
+           btn.addEventListener('click', toggleMenu);
+   });
     
     
 });

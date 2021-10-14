@@ -666,6 +666,14 @@ a {
     background-color: transparent;
     border: none;
     flex-shrink: 0;
+    .vertical-three-reader {
+    width: 200px;
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    z-index: 1;
+    
+}
     /*&:after, &:before {
     content: '';
     position: absolute;
@@ -690,7 +698,7 @@ a {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
-    // opacity: .7;
+    
 }
 
 .box-content-subheader {
@@ -959,10 +967,7 @@ a {
 }
 
 // .vertical-three-reader {
-//     visibility: hidden;
-//     // z-index: 10;
-//     .is-show {
-//       opacity: 1;
-//       visibility: visible;
-// }
+//     width: 200px;
+//     opacity: 0.95;
+    
 // }
