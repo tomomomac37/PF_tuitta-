@@ -8,6 +8,14 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_images, dependent: :destroy
   
+  # いいね機能
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
+  
+  def liked_by?(post_id)
+    likes.where(post_id: post_id).exists?
+  end
+  
   attachment :profile_image
         
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得

@@ -148,7 +148,7 @@
                                           <circle cx="12 " cy="19 " r="1 " />
                                       　</svg>
                                       　<!--縦三点リーダ-->
-                                      　<div class="vertical-three-reader">
+                                      　<div class="vertical-three-reader" style="visibility: hidden;">
                                       　    <ul>
                                       　      <li> <%= link_to("Edit", edit_post_path(post.id), {class: "list-group-item list-group-item-action"}) %></li>
                                               <li><%= link_to("Delete", post_path(post.id), {method: :delete, class: "list-group-item list-group-item-action"}) %></li>
@@ -224,7 +224,7 @@
                         </div>
                     </div>
                     <% end %>
-                </div>
+            </div>
         </div>
     </div>
     <!--<script type="text/javascript" src="/tuitta-/app/assets/javascripts/main_layouts.js"></script>-->

@@ -83,12 +83,12 @@
                                 　<!--縦三点リーダ-->
                                 　<div class="vertical-three-reader">
                                 　    <ul>
-                                        <!--ここから下がコピーしたbootstrap modal form-->
+                                        ここから下がコピーしたbootstrap modal form
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                           Launch demo modal
                                         </button>
                                         
-                                         <!--Modal -->
+                                         Modal 
                                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -118,16 +118,9 @@
                       <div class="project-box-content-header">
                           <p class="box-content-header "><%=safe_join(post.body.split("\n"),tag(:br))%></p>
                       </div>
-                      <div class="box-progress-wrapper ">
-                          <p class="box-progress-header ">Progress</p>
-                          <div class="box-progress-bar ">
-                              <span class="box-progress " style="width: 60%; background-color: #ff942e "></span>
-                          </div>
-                          <p class="box-progress-percentage ">60%</p>
-                      </div>
                       <div class="project-box-footer ">
                           <div class="participants ">
-                              #
+                            <p id="post_<%= post.id %>"><%= render 'posts/post', post: post %></p>
                           </div>
                           <div class="days-left " style="color: #ff942e; ">
                               <%= l post.created_at, format: :default %>
@@ -140,36 +133,47 @@
       </div>
       <!--フォロー、フォロワー欄（幅をコンパクトにしたい）-->
       <div class="messages-section ">
-          <div class="projects-section-header ">
-              <p>Following</p>
-          </div>
-          <% @following_users.each do |following_user| %>
-          <div class="messages ">
-              <div class="message-box ">
-                  <%= attachment_image_tag @following_user, :profile_image, format: 'jpeg', size: "100x100" %>
-                  <div class="message-content ">
-                      <div class="message-header ">
-                          <div class="name "><%= following_user.name %></div>
-                          <div class="star-checkbox ">
-        <!--                      <input type="checkbox " id="star-1 ">-->
-        <!--                      <label for="star-1 ">-->
-        <!--  <svg xmlns="http://www.w3.org/2000/svg " width="20 " height="20 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="feather feather-star ">-->
-        <!--    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2 " /></svg>-->
-        <!--</label>-->
-                                <!--ここにフォロー解除ボタン？-->
-                          </div>
-                      </div>
-                      <p class="message-line ">
-                          #
-                      </p>
-                      <!--<p class="message-line time ">-->
-                      <!--    #-->
-                      <!--</p>-->
-                  </div>
-              </div>
-          </div>
-          <% end %>
-      </div>
+                <div class="follow-bar-right">
+                    <div class="projects-section-header ">
+                        <p>Following</p>
+                    </div>
+                    <% @following_users.each do |following_user| %>
+                    <div class="messages ">
+                        <div class="message-box ">
+                            <p><%= attachment_image_tag(following_user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100') %></p>
+                            <div class="message-content ">
+                                <div class="message-header ">
+                                    <div class="name "><%= following_user.name %></div>
+                                </div>
+                                <p class="message-line ">
+                                    ##
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+                <div class="follow-bar-left">
+                    <div class="projects-section-header ">
+                        <p>Follower</p>
+                    </div>
+                    <% @follower_users.each do |follower_user| %>
+                    <div class="messages ">
+                        <div class="message-box ">
+                            <p><%= attachment_image_tag(follower_user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg", size:'100x100') %></p>
+                            <div class="message-content ">
+                                <div class="message-header ">
+                                    <div class="name "><%= follower_user.name %></div>
+                                </div>
+                                <p class="message-line ">
+                                    #
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+            </div>
           
     </div>
   </div>

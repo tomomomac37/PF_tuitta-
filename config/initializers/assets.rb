@@ -23,4 +23,5 @@ Rails.application.config.assets.precompile += %w(
     users.css
     nav.css
     main_layouts.css
+    main_layouts.js
  )

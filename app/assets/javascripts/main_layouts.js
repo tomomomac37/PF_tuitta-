@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var listView = document.querySelector('.list-view');
     var gridView = document.querySelector('.grid-view');
     var projectsList = document.querySelector('.project-boxes');
-
+    var listItems = document.getElementsByClassName('project-btn-more');
+    
     listView.addEventListener('click', function() {
         gridView.classList.remove('active');
         listView.classList.add('active');
@@ -25,7 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsList.classList.remove('jsListView');
         projectsList.classList.add('jsGridView');
     });
-
+    
+    
+ 
+    
+    
+    
     // document.querySelector('.messages-btn').addEventListener('click', function() {
     //     document.querySelector('.messages-section').classList.add('show');
     // });
@@ -57,15 +63,38 @@ document.addEventListener('DOMContentLoaded', function() {
 //     		verticalThreeReader.style.visibility ="visible";
 //     	}
 // }
-       const toggleMenu = ({ currentTarget }) => {
-       const menu = currentTarget.querySelector('.vertical-three-reader');
-       menu.style.visibility = menu.style.visibility !== 'hidden' ? 'hidden' : 'visible'
-   }
- 
-       document.querySelectorAll('.project-btn-more').forEach(btn => {
-           toggleMenu({ currentTarget: btn });
-           btn.addEventListener('click', toggleMenu);
-   });
     
     
 });
+
+function verticalThreeReader() {
+    console.log('abc');
+    const toggleMenu = ({ currentTarget }) => {
+        const menu = currentTarget.querySelector('.vertical-three-reader');
+        menu.style.visibility = menu.style.visibility !== 'hidden' ? 'hidden' : 'visible'
+    }
+ 
+    // document.querySelectorAll('.project-btn-more').forEach(btn => {
+    //     console.log(btn);
+    //     toggleMenu({ currentTarget: btn });
+    //     btn.addEventListener('click', toggleMenu);
+    // });
+    
+    var listItems = document.getElementsByClassName('project-btn-more');
+    listItems = Array.prototype.slice.call(listItems,0);
+    console.log(listItems);
+    
+    listItems.forEach(function($listItem,i){
+        console.log('def');
+        console.log(i);
+        console.log($listItem);
+        $listItem.addEventListener('click', function(){
+            console.log('順番',i);
+            const btn = document.getElementsByClassName('project-btn-more')[i];
+            toggleMenu({ currentTarget: btn });
+            btn.addEventListener('click', toggleMenu);
+        });
+    });
+    
+ 
+}   

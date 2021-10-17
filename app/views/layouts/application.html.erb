@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script type="text/javascript" src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
-    <script type="text/javascript" src="/tuitta-/app/assets/javascripts/main_layouts.js"></script>
+    <%= javascript_include_tag 'main_layouts', 'data-turbolinks-track': 'reload' %>
+    <!--<script type="text/javascript" src="/PF_tuitta-/app/assets/javascripts/main_layouts.js"></script>-->
     <!--main-codepen-->
      <!--view毎のCSS設定-->
      <%= yield :css %>
