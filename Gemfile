@@ -72,3 +72,5 @@ gem "refile-mini_magick"
 gem 'rails-ujs'
 
 gem 'font-awesome-sass'
+
+gem 'pry-rails'

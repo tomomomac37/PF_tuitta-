@@ -1,6 +1,3 @@
-<% if @status == 'success' %>
-$(".introduction").html("<%= j(render("edit", user: @user)) %>");
-<%  elsif @status == 'fail' %>
-alert('error!');
-<% end %>
+$("#user-modal").html("<%= j(render("edit", user: @user)) %>");
 $("#user-modal").modal("hide");
+

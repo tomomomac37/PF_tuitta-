@@ -4,20 +4,25 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
     @following_users = current_user.following_user
     @follower_users = current_user.follower_user
   end
   
   def create
+    # binding.pry
     @post = Post.new(post_params)
     @posts = Post.all
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to posts_path
-      flash[:notice]="トゥイート成功"
-    else
-      render "index"
+    respond_to do |format|
+      if @post.save
+        # binding.pry
+        format.html { redirect_to @posts, notice: 'User was successfully created.' }
+        format.js { @status = "success" }
+      else
+        format.html { render :index }
+        format.js { @status = "fail" }
+      end
     end
   end
   
@@ -29,8 +34,7 @@ class PostsController < ApplicationController
   
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
-      redirect_to posts_path
+    @post.destroy!
     
   end
   

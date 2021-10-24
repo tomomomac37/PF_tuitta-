@@ -374,6 +374,8 @@ a {
             opacity: .9;
             margin: 0;
             color: var(--main-color);
+            decoration: none
+            // text-decoration: none;
         }
         .time {
             font-size: 20px;
@@ -390,7 +392,7 @@ a {
     flex-direction: column;
     margin-right: 16px;
     &:not(:last-child) .status-type:after {
-        content: '';
+        // content: '';
         position: absolute;
         right: 8px;
         top: 50%;
@@ -598,8 +600,9 @@ a {
         .project-box-footer {
             order: 3;
             padding-top: 0;
-            flex-direction: column;
-            justify-content: flex-start;
+            flex-direction: inherit;
+            justify-content: space-between;
+            align-items: center;
         }
         .project-box-footer:after {
             display: none;
@@ -622,6 +625,9 @@ a {
         .box-progress-wrapper {
             order: 3;
             flex: 1;
+        }
+        #likes_buttons {
+            align-items: center;
         }
     }
 }
@@ -745,6 +751,7 @@ a {
     justify-content: space-between;
     padding-top: 16px;
     position: relative;
+    align-items: center;
     &:after {
         content: '';
         position: absolute;
