@@ -18,6 +18,7 @@ class PostsController < ApplicationController
       if @post.save
         # binding.pry
         format.html { redirect_to @posts, notice: 'User was successfully created.' }
+        
         format.js { @status = "success" }
       else
         format.html { render :index }

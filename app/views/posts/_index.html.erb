@@ -24,13 +24,8 @@
                   　</button>
                 </div>
             </div>
-            <div class="box-progress-wrapper ">
-                <!--<p class="box-progress-header ">Progress</p>-->
-                <!--<div class="box-progress-bar ">-->
-                <!--    <span class="box-progress " style="width: 60%; background-color: #ff942e "></span>-->
-                <!--</div>-->
-                <!--<p class="box-progress-percentage ">60%</p>-->
-                <%= link_to(post_path(post), class:"no-underline") do %>
+            <div class="box-progress-wrapper">
+                <%= link_to(post_path(post), class: "no-underline") do %>
                     <p class="box-content-header ">
                         <span><%=safe_join(post.body.split("\n"),tag(:br))%></span>
                     </p>

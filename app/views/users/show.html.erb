@@ -34,7 +34,7 @@
                       <span class="status-type ">Follower</span>
                   </div>
               </div>
-              <div class="view-actions ">
+              <div class="view-actions">
                   <% if @user.id == current_user.id %>
                     <%= link_to "プロフィール編集", edit_user_path(@user), remote: true, class: "btn btn-primary w-auto mt-2" %>
                     <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
