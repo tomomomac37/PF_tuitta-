@@ -69,7 +69,7 @@
           <div class="project-boxes jsGridView ">
           <% @posts.each do |post| %>
               <div class="project-box-wrapper ">
-                  <div class="project-box " style="background-color: #fee4cb; ">
+                  <div class="project-box">
                       <div class="project-box-header ">
                           <%= link_to attachment_image_tag(post.user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100'), user_path(post.user.id) %>
                           <%= link_to_if post.user, post.user.name, user_path(post.user.id) %>
