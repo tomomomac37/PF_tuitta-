@@ -72,3 +72,9 @@ gem "refile-mini_magick"
 gem 'rails-ujs'
 
 gem 'font-awesome-sass'
+
+gem 'pry-rails'
+
+gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"

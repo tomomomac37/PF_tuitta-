@@ -11,21 +11,21 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
-    # if @user == current_user
-    #   render "edit"
-    # else
-    #   redirect_to posts_path
-    # end
+    # format.js
   end
-  
+ 
   def update
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        format.js { @status = "success"}
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+        format.js { @status = "success" }
+        # format.js {}
+        # binding.pry
       else
         render "edit"
-        format.js { @status = "fail"}
+        format.js {}
       end
     end
   end

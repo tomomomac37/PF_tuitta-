@@ -1,0 +1,44 @@
+<% posts.each do |post| %>
+    <div class="project-box-wrapper">
+        <div class="project-box">
+            <div class="project-box-header">
+                <div class="project-box-header-introduction">
+                    <%= link_to attachment_image_tag(post.user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100'), user_path(post.user.id) %>
+                    <%= link_to_if post.user, post.user.name, user_path(post.user.id) %>
+                </div>
+                <div class="more-wrapper">
+                    <button class="project-btn-more" onclick="verticalThreeReader()">
+                        <svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="feather feather-more-vertical ">
+                          <circle cx="12 " cy="12 " r="1 " />
+                          <circle cx="12 " cy="5 " r="1 " />
+                          <circle cx="12 " cy="19 " r="1 " />
+                      　</svg>
+                      　<!--縦三点リーダ-->
+                      　<div class="vertical-three-reader" style="visibility: hidden;">
+                      　     <ul>    
+                      　       <li><%= link_to("Delete", post_path(post.id), {method: :delete, remote: true, class: "list-group-item list-group-item-action"}) %></li>  
+                              <li><%= link_to("Delete", post_path(post.id), {method: :delete, class: "list-group-item list-group-item-action"}) %></li>
+                              
+                      　     </ul>
+                      　</div>
+                  　</button>
+                </div>
+            </div>
+            <div class="box-progress-wrapper">
+                <%= link_to(post_path(post), class: "no-underline") do %>
+                    <p class="box-content-header ">
+                        <span><%=safe_join(post.body.split("\n"),tag(:br))%></span>
+                    </p>
+                <% end %>
+            </div>
+            <div class="project-box-footer ">
+                <div id="likes_buttons_<%= post.id %>">
+                    <%= render partial: 'posts/post', locals: {post: post} %>
+                </div>
+                <div class="days-left " style="color: #ff942e; ">
+                    <%= l post.created_at, format: :default %>
+                </div>
+            </div>
+        </div>
+    </div>
+<% end %>

@@ -34,16 +34,16 @@
                       <span class="status-type ">Follower</span>
                   </div>
               </div>
-              <div class="view-actions ">
+              <div class="view-actions">
                   <% if @user.id == current_user.id %>
                     <%= link_to "プロフィール編集", edit_user_path(@user), remote: true, class: "btn btn-primary w-auto mt-2" %>
                     <div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
                   <% end %>
                   <% if current_user != @user %>
                     <% if current_user.following?(@user) %>
-                      <%= link_to 'Follow', user_relationships_path(@user.id), method: :delete, class: "btn btn-primary" %>
+                      <%= link_to 'Unfollow', user_relationships_path(@user.id), method: :delete, remote: true, class: "btn btn-primary" %>
                     <% else %>
-                      <%= link_to 'Unfollow', user_relationships_path(@user.id), method: :POST, class: "btn btn-primary" %>
+                      <%= link_to 'Follow', user_relationships_path(@user.id), method: :POST, remote: true, class: "btn btn-primary" %>
                     <% end %>
                   <% end %>
                         <button class="view-btn list-view " title="List View ">
@@ -69,7 +69,7 @@
           <div class="project-boxes jsGridView ">
           <% @posts.each do |post| %>
               <div class="project-box-wrapper ">
-                  <div class="project-box " style="background-color: #fee4cb; ">
+                  <div class="project-box">
                       <div class="project-box-header ">
                           <%= link_to attachment_image_tag(post.user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100'), user_path(post.user.id) %>
                           <%= link_to_if post.user, post.user.name, user_path(post.user.id) %>
@@ -83,33 +83,8 @@
                                 　<!--縦三点リーダ-->
                                 　<div class="vertical-three-reader">
                                 　    <ul>
-                                        <!--ここから下がコピーしたbootstrap modal form-->
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                          Launch demo modal
-                                        </button>
-                                        
-                                         <!--Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                          <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                              <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                  <span aria-hidden="true">&times;</span>
-                                                </button>
-                                              </div>
-                                              <div class="modal-body">
-                                                ...
-                                              </div>
-                                              <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                　      <li> <%= link_to("Edit", edit_post_path(post.id), {class: "list-group-item list-group-item-action"}) %></li>
-                                        <li><%= link_to("Delete", post_path(post.id), {method: :delete, class: "list-group-item list-group-item-action"}) %></li>
+                                　      <li style="list-style: none;"> <%= link_to("Edit", post_path(post.id), {class: "list-group-item list-group-item-action"}) %></li>
+                                        <li style="list-style: none;"><%= link_to("Delete", post_path(post.id), {method: :delete, class: "list-group-item list-group-item-action"}) %></li>
                                 　    </ul>
                                 　</div>
                             　</button>
@@ -120,7 +95,9 @@
                       </div>
                       <div class="project-box-footer ">
                           <div class="participants ">
-                            <p id="post_<%= post.id %>"><%= render 'posts/post', post: post %></p>
+                              <div id="likes_buttons_<%= post.id %>">
+                                  <%= render partial: 'posts/post', locals: {post: post} %>
+                              </div>
                           </div>
                           <div class="days-left " style="color: #ff942e; ">
                               <%= l post.created_at, format: :default %>
