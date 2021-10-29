@@ -9,16 +9,7 @@
               <p>My Page</p>
               <p class="time "><%= Date.today %></p>
           </div>
-          <div class="projects-section-header ">
-            <p>
-              <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "500x500", fallback: "no_image.jpg" %>
-              <%= @user.name %>
-            </p>
-          </div>
-          <p class="introduction">
-            <%= @user.introduction %>
-          </p>
-          
+          <%= render partial: "users/profile" ,locals:{ user: @user } %>
           <div class="projects-section-line ">
               <div class="projects-status ">
                   <div class="item-status ">
@@ -116,16 +107,17 @@
                     </div>
                     <% @following_users.each do |following_user| %>
                     <div class="messages ">
-                        <div class="message-box ">
+                        <div class="message-box">
+                            <%= link_to (user_path(following_user.id)) do %>
                             <p><%= attachment_image_tag(following_user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100') %></p>
                             <div class="message-content ">
                                 <div class="message-header ">
                                     <div class="name "><%= following_user.name %></div>
                                 </div>
+                            <% end %>
                                 <p class="message-line ">
                                     ##
                                 </p>
-                                
                             </div>
                         </div>
                     </div>
@@ -136,19 +128,21 @@
                         <p>Follower</p>
                     </div>
                     <% @follower_users.each do |follower_user| %>
-                    <div class="messages ">
-                        <div class="message-box ">
-                            <p><%= attachment_image_tag(follower_user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg", size:'100x100') %></p>
-                            <div class="message-content ">
-                                <div class="message-header ">
-                                    <div class="name "><%= follower_user.name %></div>
+                        <div class="messages ">
+                            <div class="message-box ">
+                                <%= link_to (user_path(follower_user.id)) do %>
+                                <p><%= attachment_image_tag(follower_user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg", size:'100x100') %></p>
+                                <div class="message-content ">
+                                    <div class="message-header ">
+                                        <div class="name "><%= follower_user.name %></div>
+                                    </div>
+                                <% end %>
+                                    <p class="message-line">
+                                        #
+                                    </p>
                                 </div>
-                                <p class="message-line ">
-                                    #
-                                </p>
                             </div>
                         </div>
-                    </div>
                     <% end %>
             </div>
           

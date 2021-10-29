@@ -16,9 +16,8 @@
                       　<!--縦三点リーダ-->
                       　<div class="vertical-three-reader" style="visibility: hidden;">
                       　     <ul>    
-                      　       <li><%= link_to("Delete", post_path(post.id), {method: :delete, remote: true, class: "list-group-item list-group-item-action"}) %></li>  
+                      　       <li><%= link_to("Delete", post_path(post.id), {method: :delete, remote: true, class: "list-group-item list-group-item-action"}) %></li>
                               <li><%= link_to("Delete", post_path(post.id), {method: :delete, class: "list-group-item list-group-item-action"}) %></li>
-                              
                       　     </ul>
                       　</div>
                   　</button>
@@ -30,6 +29,7 @@
                         <span><%=safe_join(post.body.split("\n"),tag(:br))%></span>
                     </p>
                 <% end %>
+                <%= attachment_image_tag post, :image, format: 'jpeg', size: "150x150" %>
             </div>
             <div class="project-box-footer ">
                 <div id="likes_buttons_<%= post.id %>">
