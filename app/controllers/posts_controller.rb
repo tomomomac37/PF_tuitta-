@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     # Post.create(post_params)
     respond_to do |format|
       if @post.save
-        @posts = Post.all
+        @posts = Post.order(created_at: :desc)
         format.html { redirect_to @posts, notice: 'User was successfully created.' }
         format.json { render :index, status: :ok, location: @post }
         format.js
