@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @users = User.all
     @post = Post.new
     @posts = Post.order(created_at: :desc)
     @following_users = current_user.following_user
@@ -10,16 +11,15 @@ class PostsController < ApplicationController
   end
   
   def create
-    # binding.pry
     @post = Post.new(post_params)
-    @posts = Post.all
     @post.user_id = current_user.id
+    # Post.create(post_params)
     respond_to do |format|
       if @post.save
-        # binding.pry
+        @posts = Post.all
         format.html { redirect_to @posts, notice: 'User was successfully created.' }
-        
-        format.js { @status = "success" }
+        format.json { render :index, status: :ok, location: @post }
+        format.js
       else
         format.html { render :index }
         format.js { @status = "fail" }

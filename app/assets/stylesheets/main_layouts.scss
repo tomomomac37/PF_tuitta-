@@ -7,11 +7,11 @@ form {
     margin: 0 auto;
 }
 
-.post {
-  height: 180px;
-  width: 340px;
+// .post {
+//   height: 180px;
+//   width: 340px;
   
-}
+// }
 
 textarea {
   background: #eaeef6;
@@ -129,13 +129,13 @@ td {
 html,
 body {
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     margin: 0;
 }
 
 body {
     font-family: 'DM Sans', sans-serif;
-    overflow: hidden;
+    // overflow: hidden;
     display: flex;
     justify-content: center;
     background-color: var(--app-container);
@@ -167,7 +167,7 @@ a {
         display: flex;
         height: 100%;
         width: 100%;
-        overflow: hidden;
+        // overflow: hidden;
         padding: 16px 24px 24px 0;
     }
     &-header {
@@ -228,7 +228,7 @@ a {
     background-color: var(--projects-section);
     border-radius: 32px;
     padding: 32px 32px 0 32px;
-    overflow: hidden;
+    // overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -881,9 +881,24 @@ a {
   color: #e54747;
 }
 
-.project-box-wrapper {
-        &:nth-child(2n){
-    background: red;
-    }
+// .project-box {
+//     div:nth-of-type(3n+1) {
+//       background-color: red;
+//     }
+//     div:nth-of-type(3n+2) {
+//       background-color: blue;
+//     }
+//     div:nth-of-type(3n+3) {
+//       background-color: green;
+//     }
     
-}
+// }
+
+// .project-box:nth-child(odd) {
+//               background-color: red;
+//             }
+//             .project-box:nth-child(even) {
+//               background-color: blue;
+//             }
+            
+            

@@ -9,7 +9,8 @@
               <p>My Page</p>
               <p class="time "><%= Date.today %></p>
           </div>
-          <%= render partial: "users/profile" ,locals:{ user: @user } %>
+          <!--ユーザー編集のAjax-->
+          <%= render partial: "users/profile", locals:{ user: @user } %>
           <div class="projects-section-line ">
               <div class="projects-status ">
                   <div class="item-status ">
@@ -134,7 +135,7 @@
                                 <p><%= attachment_image_tag(follower_user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg", size:'100x100') %></p>
                                 <div class="message-content ">
                                     <div class="message-header ">
-                                        <div class="name "><%= follower_user.name %></div>
+                                        <div class="name"><%= follower_user.name %></div>
                                     </div>
                                 <% end %>
                                     <p class="message-line">
