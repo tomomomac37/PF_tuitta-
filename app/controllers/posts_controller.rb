@@ -32,10 +32,33 @@ class PostsController < ApplicationController
     @user = @post.user
   end
   
+  def edit
+    @post = Post.find(params[:id])
+  end
+  
+  def update
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: 'post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+        format.js { @status = "success" }
+        # format.js {}
+        # binding.pry
+      else
+        render "edit"
+        format.js {}
+      end
+    end
+  end
   
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy!
+    @post_id = @post.id
+    @post.destroy
+    respond_to do |format|
+      format.js
+    end
     
   end
   

@@ -7,5 +7,4 @@
 $("text_area").val("");
 $("input").val("");
 $("#exampleModal").modal("hide");
-<!--$(".newposts").html("<%= j(render("index")) %>");-->
 $(".newposts").html("<%= escape_javascript(render 'index', posts: @posts) %>");
