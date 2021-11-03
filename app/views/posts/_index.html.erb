@@ -11,6 +11,7 @@
                     <!--Editはlink_toではなく、spanタグにしてjsファイルに処理を書く-->
                     <div class="post-action-#{ post.id }">
                         <%= link_to(content_tag(:i, nil, class: 'fas fa-edit'), edit_post_path(post), remote: true) %>
+                        <!--<div id="user-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>-->
                         <%= link_to(content_tag(:i, nil, class: 'fas fa-trash-alt'), post_path(post), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' }) %>
                     </div>
                 </div>
