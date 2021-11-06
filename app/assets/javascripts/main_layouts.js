@@ -24,74 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsList.classList.add('jsGridView');
     });
     
-    
+    // window.addEventListener('load', () => {
+    //     const uploader = document.querySelector('.uploader');
+    //     uploader.addEventListener('change', (e) => {
+    //       const file = uploader.files[0];
+    //       const reader = new FileReader();
+    //       reader.readAsDataURL(file);
+    //       reader.onload = () => {
+    //         const image = reader.result;
+    //         document.querySelector('.avatar').setAttribute('src', image);
+    //       }
+    //     });
+    // });
  
-    
-    
-    
-    // document.querySelector('.messages-btn').addEventListener('click', function() {
-    //     document.querySelector('.messages-section').classList.add('show');
-    // });
-
-    // document.querySelector('.messages-close').addEventListener('click', function() {
-    //     document.querySelector('.messages-section').classList.remove('show');
-    // });
-    
-    // 縦三点リーダクリック時アクション
-    // var projectBtnMore = document.querySelector('.project-btn-more');
-    // var verticalThreeReader = document.querySelector('.vertical-three-reader');
-    
-    // projectBtnMore.addEventListener('click', function() {
-    //     // projectBtnMore.classList.add('verticalThreeReader');
-    //     projectBtnMore.classList.toggle('is-show');
-    //     verticalThreeReader.classList.toggle('is-show')
-    // })
-    
-//     document.querySelector(".vertical-three-reader").style.visibility ="hidden";
-
-//     function verticalThreeReader(){
-//     	const verticalThreeReader = document.querySelector(".vertical-three-reader");
-    
-//     	if(verticalThreeReader.style.visibility=="visible"){
-//     		// hiddenで非表示
-//     		verticalThreeReader.style.visibility ="hidden";
-//     	}else{
-//     		// visibleで表示
-//     		verticalThreeReader.style.visibility ="visible";
-//     	}
-// }
-    
-    
 });
-
-function verticalThreeReader() {
-    console.log('abc');
-    const toggleMenu = ({ currentTarget }) => {
-        const menu = currentTarget.querySelector('.vertical-three-reader');
-        menu.style.visibility = menu.style.visibility !== 'hidden' ? 'hidden' : 'visible'
-    }
- 
-    // document.querySelectorAll('.project-btn-more').forEach(btn => {
-    //     console.log(btn);
-    //     toggleMenu({ currentTarget: btn });
-    //     btn.addEventListener('click', toggleMenu);
-    // });
-    
-    var listItems = document.getElementsByClassName('project-btn-more');
-    listItems = Array.prototype.slice.call(listItems,0);
-    console.log(listItems);
-    
-    listItems.forEach(function($listItem,i){
-        console.log('def');
-        console.log(i);
-        console.log($listItem);
-        $listItem.addEventListener('click', function(){
-            console.log('順番',i);
-            const btn = document.getElementsByClassName('project-btn-more')[i];
-            toggleMenu({ currentTarget: btn });
-            btn.addEventListener('click', toggleMenu);
-        });
-    });
-    
- 
-}   

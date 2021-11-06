@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :post_images, dependent: :destroy
   
+  
   # いいね機能
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
@@ -41,6 +42,15 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
+    end
+  end
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+      user.name = 'guestuser'
+      user.introduction = 'よろしくお願いいたします。'
     end
   end
   

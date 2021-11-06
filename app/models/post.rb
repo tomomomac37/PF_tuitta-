@@ -7,6 +7,6 @@ class Post < ApplicationRecord
   has_many :users, through: :likes
   
   attachment :image
-  validates :body, presence: true, length: { maximum: 140 }
+  validates :body, presence: true, length: { maximum: 100 }
   
 end
