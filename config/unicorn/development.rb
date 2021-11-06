@@ -1,5 +1,5 @@
 # paths
-    app_path = "/home/ec2-user/PF-tuitta-"
+    app_path = "/home/ec2-user/PF_tuitta-"
     pid_path = "#{app_path}/tmp/pids/unicorn.pid"
     listen_path = "#{app_path}/tmp/sockets/unicorn.sock"
     # unicorn paths
