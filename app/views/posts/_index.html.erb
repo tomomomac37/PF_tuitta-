@@ -18,11 +18,11 @@
                 <div class="project-box-content-header">
                     <p class="box-content-header "><%=safe_join(post.body.split("\n"),tag(:br))%></p>
                 </div>
-                <div class="project-box-footer ">
+                <div class="project-box-footer">
                     <div id="likes_buttons_<%= post.id %>">
                         <%= render partial: 'posts/post', locals: {post: post} %>
                     </div>
-                    <div class="days-left " style="color: #ff942e; ">
+                    <div class="days-left " style="color: #ff942e;">
                         <%= l post.created_at, format: :default %>
                     </div>
                 </div>

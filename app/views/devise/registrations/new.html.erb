@@ -14,9 +14,9 @@
 					<!--<input class="text" type="password" name="password" placeholder="Password" required="">-->
 					<!--ここの表示を自然にする-->
 					<% if @minimum_password_length %>
-            <!--<em>(<%#= @minimum_password_length %> characters minimum)</em>-->
-          <%= f.password_field :password, autocomplete: "new-password", :class => 'input', :placeholder => 'Password (6 characters minimum)' %><br/>
-          <% end %>
+			          <!--<em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+			          <%= f.password_field :password, autocomplete: "new-password", :class => 'input', :placeholder => 'Password (6 characters minimum)' %><br/>
+			        <% end %>
 					<!--<input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">-->
 					<%= f.password_field :password_confirmation, autocomplete: "new-password", :class => 'input', :placeholder => 'ConfirmPassword' %><br/>
 					<div class="wthree-text">

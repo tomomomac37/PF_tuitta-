@@ -5,10 +5,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook twitter google_oauth2]
+         
+  # バリデーション
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :introduction, length: { maximum: 50 }
   
   has_many :posts, dependent: :destroy
   has_many :post_images, dependent: :destroy
-  
   
   # いいね機能
   has_many :likes, dependent: :destroy
