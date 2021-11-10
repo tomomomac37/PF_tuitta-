@@ -4,7 +4,6 @@
 
 <!--$("js-form").val('');-->
 
-$("text_area").val("");
-$("input").val("");
+$("textarea").val("");
 $("#exampleModal").modal("hide");
 $(".newposts").html("<%= escape_javascript(render 'index', posts: @posts) %>");

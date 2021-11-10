@@ -450,6 +450,18 @@ a {
             // }
         }
     }
+    &.jsGridView {
+        .project-box {
+            height: 250px;
+        }
+        .project-box-content-header {
+            height: 50%;
+        }
+        .project-box-footer {
+            height: 10%;
+            padding-top: 30px;
+        }
+    }
     &.jsListView {
         .project-box {
             // display: flex;
@@ -469,10 +481,11 @@ a {
             order: 1;
             max-width: 120px;
             overflow-wrap: break-word;
+            text-align: center;
         }
         .project-box-header {
             order: 2;
-            display: block;
+            display: flex;
     
         }
         .project-box-footer {
@@ -483,7 +496,7 @@ a {
             align-items: center;
         }
         .project-box-footer:after {
-            display: none;
+            // display: none;
         }
         .participants {
             margin-bottom: 8px;
@@ -535,6 +548,7 @@ a {
     &-content-header {
         text-align: center;
         margin-bottom: 16px;
+        height: 60%;
         p {
             margin: 0;
         }
@@ -675,11 +689,10 @@ a {
 }
 
 .days-left {
-    background-color: rgba(255, 255, 255, 0.6);
     font-size: 12px;
     border-radius: 20px;
     flex-shrink: 0;
-    padding: 6px 16px;
+    padding-bottom: 15px;
     font-weight: 700;
 }
 

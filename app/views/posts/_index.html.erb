@@ -22,7 +22,7 @@
                     <div id="likes_buttons_<%= post.id %>">
                         <%= render partial: 'posts/post', locals: {post: post} %>
                     </div>
-                    <div class="days-left " style="color: #ff942e; ">
+                    <div class="days-left">
                         <%= l post.created_at, format: :default %>
                     </div>
                 </div>
