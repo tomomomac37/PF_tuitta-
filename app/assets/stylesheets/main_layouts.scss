@@ -7,12 +7,6 @@ form {
     margin: 0 auto;
 }
 
-// .post {
-//   height: 180px;
-//   width: 340px;
-  
-// }
-
 textarea {
   background: #eaeef6;
   border-radius: 10px;
@@ -867,12 +861,6 @@ a {
     width: 50%;
     display: left;
 }
-
-// .vertical-three-reader {
-//     width: 200px;
-//     opacity: 0.95;
-    
-// }
 // いいね機能
 .like-link {
   text-decoration: none;
@@ -892,24 +880,7 @@ a {
   color: #e54747;
 }
 
-// .project-box {
-//     div:nth-of-type(3n+1) {
-//       background-color: red;
-//     }
-//     div:nth-of-type(3n+2) {
-//       background-color: blue;
-//     }
-//     div:nth-of-type(3n+3) {
-//       background-color: green;
-//     }
-    
-// }
 
-// .project-box:nth-child(odd) {
-//               background-color: red;
-//             }
-//             .project-box:nth-child(even) {
-//               background-color: blue;
-//             }
-            
-            
+img {
+    cursor: pointer;
+}
