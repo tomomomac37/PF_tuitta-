@@ -45,6 +45,18 @@ td {
     font-weight: 700;
     // background-color: #eaeef6;
 }
+.profile-header{
+    display: flex;
+    .profile_image {
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+    }
+}
+.modal-body .profile_image {
+    width: 450px;
+    height: 450px;
+}
 .new-posts {
   text-align: center;
 }
