@@ -1,0 +1,6 @@
+$("#editpost<%= @post.id %>").modal("hide");
+$(".newposts").html("<%= escape_javascript(render('index')) %>");
+<!--modal-backdropクラスを削除する処理↓-->
+$(".modal-backdrop").remove();
+<!--modal-openクラスを削除する処理↓-->
+$("body").removeClass("modal-open");

@@ -37,10 +37,11 @@ class PostsController < ApplicationController
   
   def update
     @post = Post.find(params[:id])
+    @posts = Post.order(created_at: :desc)
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
+        format.html { redirect_to posts_path, notice: 'post was successfully updated.' }
+        format.json { render :index, status: :ok, location: @post }
         format.js { @status = "success" }
         # format.js {}
         # binding.pry

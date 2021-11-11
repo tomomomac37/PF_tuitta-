@@ -102,7 +102,7 @@
                                 <%= render partial: 'posts/post', locals: {post: post} %>
                             </div>
                         </div>
-                        <div class="days-left " style="color: #ff942e; ">
+                        <div class="days-left">
                             <%= l post.created_at, format: :default %>
                         </div>
                     </div>
@@ -121,15 +121,12 @@
             <div class="messages ">
                 <div class="message-box">
                     <%= link_to (user_path(following_user.id)) do %>
-                    <p><%= attachment_image_tag(following_user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100') %></p>
-                    <div class="message-content ">
+                        <p><%= attachment_image_tag(following_user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100') %></p>
+                        <div class="message-content ">
+                    <% end %>
                         <div class="message-header ">
                             <div class="name "><%= following_user.name %></div>
                         </div>
-                    <% end %>
-                        <p class="message-line ">
-                            ##
-                        </p>
                     </div>
                 </div>
             </div>
@@ -143,15 +140,12 @@
                 <div class="messages ">
                     <div class="message-box ">
                         <%= link_to (user_path(follower_user.id)) do %>
-                        <p><%= attachment_image_tag(follower_user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg", size:'100x100') %></p>
+                            <p><%= attachment_image_tag(follower_user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg", size:'100x100') %></p>
+                        <% end %>
                         <div class="message-content ">
                             <div class="message-header ">
                                 <div class="name"><%= follower_user.name %></div>
                             </div>
-                        <% end %>
-                            <p class="message-line">
-                                #
-                            </p>
                         </div>
                     </div>
                 </div>
