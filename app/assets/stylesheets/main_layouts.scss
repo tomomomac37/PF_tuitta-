@@ -455,6 +455,9 @@ a {
             //     background-color: #fee4cb;
             // }
         }
+        .project-box-content-header {
+            overflow: scroll;
+        }
     }
     &.jsGridView {
         .project-box {
