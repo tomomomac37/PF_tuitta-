@@ -21,7 +21,8 @@ class PostsController < ApplicationController
         format.json { render :index, status: :ok, location: @post }
         format.js
       else
-        render :index
+        format.json { render :index }
+        format.js { render :index }
       end
     end
   end

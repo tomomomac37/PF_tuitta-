@@ -2,6 +2,13 @@
     <%= stylesheet_link_tag 'nav' %>
     <%= stylesheet_link_tag 'main_layouts' %>
 <% end %>
+<% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーが発生しました
+  <% @post.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
 <%= render "common/sidebar" %>
     <div class="app-content">
         <div class="projects-section ">
@@ -34,26 +41,33 @@
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
-                          <%= form_for @post, remote: true do |f| %>
-                              <div class="modal-body">
-                                <%= render 'layouts/error_messages', model: @post %>
-                                <div class="post">
-                                  <%= f.text_area :body, size: "40x5", :placeholder => 'いまどんな気持ち？' %>
-                                  <div class="image_wrapper">
-                                    <div class="item_image_btn">
-                                      <%= f.attachment_field :image, id: "file" %>
-                                    </div>
-                                    <div id="img_field" onClick="$('#file').click()" >
-                                      <p class="image-select">画像選択</p>
+                            <% if @post.errors.any? %>
+                              <%= @post.errors.count %>件のエラーが発生しました
+                              <% @post.errors.full_messages.each do |message| %>
+                                <%= message %>
+                              <% end %>
+                            <% end %>
+
+                            <%= form_for @post, remote: true do |f| %>
+                                <div class="modal-body">
+                                  <%= render 'layouts/error_messages', model: @post %>
+                                  <div class="post">
+                                    <%= f.text_area :body, size: "40x5", :placeholder => 'いまどんな気持ち？' %>
+                                    <div class="image_wrapper">
+                                      <div class="item_image_btn">
+                                        <%= f.attachment_field :image, id: "file" %>
+                                      </div>
+                                      <div id="img_field" onClick="$('#file').click()" >
+                                        <p class="image-select">画像選択</p>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <%= f.submit "投稿する", class: "btn btn-primary" %>
-                              </div>
-                          <% end %>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <%= f.submit "投稿する", class: "btn btn-primary" %>
+                                </div>
+                            <% end %>
                         </div>
                       </div>
                     </div>
