@@ -10,11 +10,12 @@ Rails.application.routes.draw do
         :omniauth_callbacks => 'users/omniauth_callbacks'
   }
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    # TIPS: ユーザー登録失敗のリダイレクトのエラーを防ぐ https://github.com/heartcombo/devise/blob/master/app/controllers/devise/registrations_controller.rb
+    get '/users', to: 'devise/registrations#new'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-  resources :users, except: [:index] do
+  resources :users do
     resource :relationships, only: [:create, :destroy]
   end
   resources :posts

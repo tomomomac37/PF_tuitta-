@@ -11,7 +11,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
+  #   @user = User.new
+  #   if @user.save
+  #     redirect_to "homes_thanks_path"
+  #   else
+  #     render :new
   # end
 
   # GET /resource/edit

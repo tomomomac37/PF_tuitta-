@@ -7,12 +7,6 @@ form {
     margin: 0 auto;
 }
 
-// .post {
-//   height: 180px;
-//   width: 340px;
-  
-// }
-
 textarea {
   background: #eaeef6;
   border-radius: 10px;
@@ -50,6 +44,18 @@ td {
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
     // background-color: #eaeef6;
+}
+.profile-header{
+    display: flex;
+    .profile_image {
+        border-radius: 50%;
+        width: 75px;
+        height: 75px;
+    }
+}
+.modal-body .profile_image {
+    width: 450px;
+    height: 450px;
 }
 .new-posts {
   text-align: center;
@@ -449,6 +455,21 @@ a {
             //     background-color: #fee4cb;
             // }
         }
+        .project-box-content-header {
+            overflow: scroll;
+        }
+    }
+    &.jsGridView {
+        .project-box {
+            height: 250px;
+        }
+        .project-box-content-header {
+            height: 50%;
+        }
+        .project-box-footer {
+            height: 10%;
+            padding-top: 30px;
+        }
     }
     &.jsListView {
         .project-box {
@@ -469,10 +490,11 @@ a {
             order: 1;
             max-width: 120px;
             overflow-wrap: break-word;
+            text-align: center;
         }
         .project-box-header {
             order: 2;
-            display: block;
+            display: flex;
     
         }
         .project-box-footer {
@@ -483,7 +505,7 @@ a {
             align-items: center;
         }
         .project-box-footer:after {
-            display: none;
+            // display: none;
         }
         .participants {
             margin-bottom: 8px;
@@ -535,6 +557,7 @@ a {
     &-content-header {
         text-align: center;
         margin-bottom: 16px;
+        height: 60%;
         p {
             margin: 0;
         }
@@ -675,11 +698,10 @@ a {
 }
 
 .days-left {
-    background-color: rgba(255, 255, 255, 0.6);
     font-size: 12px;
     border-radius: 20px;
     flex-shrink: 0;
-    padding: 6px 16px;
+    padding-bottom: 15px;
     font-weight: 700;
 }
 
@@ -854,12 +876,6 @@ a {
     width: 50%;
     display: left;
 }
-
-// .vertical-three-reader {
-//     width: 200px;
-//     opacity: 0.95;
-    
-// }
 // いいね機能
 .like-link {
   text-decoration: none;
@@ -879,24 +895,7 @@ a {
   color: #e54747;
 }
 
-// .project-box {
-//     div:nth-of-type(3n+1) {
-//       background-color: red;
-//     }
-//     div:nth-of-type(3n+2) {
-//       background-color: blue;
-//     }
-//     div:nth-of-type(3n+3) {
-//       background-color: green;
-//     }
-    
-// }
 
-// .project-box:nth-child(odd) {
-//               background-color: red;
-//             }
-//             .project-box:nth-child(even) {
-//               background-color: blue;
-//             }
-            
-            
+img {
+    cursor: pointer;
+}

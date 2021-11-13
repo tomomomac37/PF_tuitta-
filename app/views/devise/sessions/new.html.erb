@@ -3,10 +3,14 @@
 <% end %>
 <div class="main-w3layouts wrapper">
 		<h1>SignIn Form</h1>
+		
+		
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 
 <%= form_for(@user, url: user_session_path) do |f| %>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
 	<%= f.email_field :email, autofocus: true, :class => 'input', :placeholder => 'Email' %><br/>
 	<%= f.password_field :password, autocomplete: "new-password", :class => 'input', :placeholder => 'Password' %><br/>
   <% if devise_mapping.rememberable? %>

@@ -7,6 +7,7 @@
 		<div class="main-agileinfo">
 			<div class="agileits-top">
 				<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+					<!--<%= render "devise/shared/error_messages", resource: resource %>-->
 					<!--<input class="text" type="text" name="Username" placeholder="Username" required="">-->
 					<%= f.text_field :name, autofocus: true, :class => 'input', :placeholder => 'Username' %><br/>
 					<!--<input class="text email" type="email" name="email" placeholder="Email" required="">-->

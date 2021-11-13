@@ -1,9 +1,27 @@
 <div class="user-introduction">
     <div class="projects-section-header ">
         <p>
-          <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "500x500", fallback: "no_image.jpg" %>
-          <%= @user.name %>
+            <div data-toggle="modal" data-target="#userprofile">
+              <%= attachment_image_tag(@user, :profile_image, format: 'jpeg', size: "75x75", fallback: "no_image.jpg") %>
+            </div>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="userprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header" style="height: 10px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= attachment_image_tag(@user, :profile_image, format: 'jpeg', size: "450x450", fallback: "no_image.jpg") %>
+                  </div>
+                </div>
+              </div>
+            </div>
         </p>
+            <p style="padding-left: 10px;"><%= @user.name %></p>
     </div>
     <p class="introduction">
     <%= @user.introduction %>
