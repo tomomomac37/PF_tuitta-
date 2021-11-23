@@ -9,6 +9,7 @@
                         <%= link_to_if post.user, post.user.name, user_path(post.user.id) %>
                     </div>
                     <!--Editはlink_toではなく、spanタグにしてjsファイルに処理を書く-->
+                    <% if post.user_id == current_user.id %>
                     <div class="post-action-#{ post.id }">
                     <div data-toggle="modal" data-target="#editpost<%= post.id %>">
                         <!--<%#= link_to(content_tag(:i, nil, class: 'fas fa-edit'), edit_post_path(post), remote: true) %>-->
@@ -41,6 +42,7 @@
                     </div>
                         <%= link_to(content_tag(:i, nil, class: 'fas fa-trash-alt'), post_path(post), method: :delete, remote: true, data: { confirm: '投稿を削除してよろしいでしょうか？' }) %>
                     </div>
+                    <% end %>
                 </div>
                 <div class="project-box-content-header">
                     <p class="box-content-header "><%=safe_join(post.body.split("\n"),tag(:br))%></p>

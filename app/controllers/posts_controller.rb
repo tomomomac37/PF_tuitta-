@@ -6,14 +6,15 @@ class PostsController < ApplicationController
     @users = User.all
     @post = Post.new
     @posts = Post.order(created_at: :desc)
+    # binding.pry
     @following_users = current_user.following_user
     @follower_users = current_user.follower_user
   end
   
   def create
     @post = Post.new(post_params)
+        
     @post.user_id = current_user.id
-    # Post.create(post_params)
     respond_to do |format|
       if @post.save
         @posts = Post.order(created_at: :desc)
@@ -21,7 +22,11 @@ class PostsController < ApplicationController
         format.json { render :index, status: :ok, location: @post }
         format.js
       else
-        format.json { render :index }
+        # binding.pry
+        @users = User.all
+        @posts = Post.order(created_at: :desc)
+        @following_users = current_user.following_user
+        @follower_users = current_user.follower_user
         format.js { render :index }
       end
     end
@@ -44,8 +49,6 @@ class PostsController < ApplicationController
         format.html { redirect_to posts_path, notice: 'post was successfully updated.' }
         format.json { render :index, status: :ok, location: @post }
         format.js { @status = "success" }
-        # format.js {}
-        # binding.pry
       else
         render "edit"
         format.js {}
