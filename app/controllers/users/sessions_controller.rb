@@ -7,6 +7,12 @@ class Users::SessionsController < Devise::SessionsController
   def new
     @user = User.new
   end
+  
+  def guest_sign_in
+    user = User.guest
+    sign_in user   # ユーザーをログインさせる
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 
   # POST /resource/sign_in
   # def create

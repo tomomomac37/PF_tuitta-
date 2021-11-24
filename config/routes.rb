@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     # TIPS: ユーザー登録失敗のリダイレクトのエラーを防ぐ https://github.com/heartcombo/devise/blob/master/app/controllers/devise/registrations_controller.rb
     get '/users', to: 'devise/registrations#new'
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
