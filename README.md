@@ -1,24 +1,64 @@
-# README
+# 概要
+「吐き出したい気持ちを、ここに」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+全ての方へ向けた、snsサービスです。
 
-Things you may want to cover:
+# URL
+tuittaa.com
 
-* Ruby version
+【Sign in as a guest user】ボタンから、ゲストログインできます。
+新規登録の方は新規登録をお願いします。Googleでログインにも対応しています。
 
-* System dependencies
+# 制作の背景
+プログラミングのスクールに通いましたが、前職の仕事が忙しい時期と重なってしまい本アプリはスクール受講中に着手することができませんでした。
+そこで、今まで学んできたものの復習と新たな技術を取り入れるために一番最適だと考えたのがSNS風アプリでした。
+今まで曖昧に開発していたものを今一度見直し、一人で作成することができました。
 
-* Configuration
+また、使っていただきたいターゲット層はもちろん多くの皆様ですが、母親がIT関係に関して苦手意識が高いこともあり、
+そういった苦手意識を持っている人にこそ使っていただきたいと思い、作成しました。
+このアプリを通して一人でも多くの方がパソコンに触れるきっかけになればと考えています。
 
-* Database creation
+今後も学習目的でアップデートしていきたいと考えております。
 
-* Database initialization
+# 機能一蘭
+- 投稿機能
+  - 投稿フォームから自由に書き込みができます。
+- いいね機能
+  - 誰かの投稿にハートマークを押下することでいいねが反映されます。
+- フォロー機能
+  - 他ユーザーページに訪れるとFollowボタンがあり、フォロー、アンフォローができます。
 
-* How to run the test suite
+# 環境・使用技術
 
-* Services (job queues, cache servers, search engines, etc.)
+## フロントエンド
 
-* Deployment instructions
+- Bootstrap 4.5.0
+- SCSS
+- JavaScript,jQuery,Ajax
 
-* ...
+## バックエンド
+
+- Ruby 2.6.3
+- Rails 5.2.6
+
+## 開発環境
+
+- AWS cloud9
+- MYSQL2
+
+## 本番環境
+
+- AWS(EC2,Route53)
+- MySQL2
+- Nginx,Unicorn
+
+## その他使用技術
+
+- 非同期通信（新規投稿・投稿編集と削除・ユーザー編集・いいね機能）
+- シングルサインオン（Googleでログイン）
+- HTTPS接続
+- Githubの活用（プルリク、マージ、ブランチ）
+
+# About me
+新卒で1年3ヶ月不動産業界でデザイン等をはじめとして建物のリノベーション事業に携わりました。
+2021年3月にプログラミングスクールに通い、Webエンジニアを目指して勉強中です。
