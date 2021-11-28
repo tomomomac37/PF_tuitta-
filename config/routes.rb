@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     get '/users', to: 'devise/registrations#new'
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+
   resources :users do
     resource :relationships, only: [:create, :destroy]
   end
