@@ -1,6 +1,5 @@
 default: &default
   adapter: mysql2
-  charset: utf8
   encoding: utf8
   pool: 5
   username: root
@@ -9,7 +8,6 @@ default: &default
   
 development:
   adapter: mysql2
-  charset: utf8
   encoding: utf8
   database: development
   pool: 5
@@ -19,7 +17,6 @@ development:
 
 test:
   adapter: mysql2
-  charset: utf8
   encoding: utf8
   database: _test
   pool: 5
@@ -29,7 +26,6 @@ test:
 
 production:
   adapter: mysql2
-  charset: utf8
   encoding: utf8
   database: _production
   pool: 5
