@@ -2,31 +2,37 @@
     <%= stylesheet_link_tag 'signup' %>
 <% end %>
 <div class="main-w3layouts wrapper">
-	<h1>トゥイッター</h1>
+	<h1>トゥイッターにログイン</h1>
 	<p style="text-align: center;">このサイトはあなたの気持ちを自由に呟くための場所です</p>
 	<div class="main-agileinfo">
 		<div class="agileits-top">
-			<h1>SignIn Form</h1>
 
-	<%= form_for(@user, url: user_session_path) do |f| %>
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		<%= f.email_field :email, autofocus: true, :class => 'input', :placeholder => 'Email' %><br/>
-		<%= f.password_field :password, autocomplete: "new-password", :class => 'input', :placeholder => 'Password' %><br/>
-	  	<% if devise_mapping.rememberable? %>
-	  	<div class="wthree-text">
-			<label class="anim">
-				<%= f.check_box :remember_me, :class => 'checkbox' %>
-				<span>Remember Me</span>
-			</label>
+		<%= form_for(@user, url: user_session_path) do |f| %>
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			<%= f.email_field :email, autofocus: true, :class => 'input', :placeholder => 'Email' %><br/>
+			<%= f.password_field :password, autocomplete: "new-password", :class => 'input', :placeholder => 'Password' %><br/>
+		  	<% if devise_mapping.rememberable? %>
+		  	<div class="wthree-text">
+				<label class="anim">
+					<%= f.check_box :remember_me, :class => 'checkbox' %>
+					<span>Remember Me</span>
+				</label>
+			<% end %>
+	
+			    <div class="actions">
+			    	<%= f.submit "Log in" %>
+			    </div>
 		<% end %>
-
-		    <div class="actions">
-		    	<%= f.submit "Log in" %>
-		    </div>
-	<% end %>
+		</div>
+		<div class="sign_in-button">
+			<p><%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-light" %></p>
+			<p><%= link_to 'ゲスト利用はこちら！', users_guest_sign_in_path, method: :post, class: "btn btn-outline-light" %></p>
+			<p><%= link_to image_tag("btn_google_signin_light_focus_web.png"), user_google_oauth2_omniauth_authorize_path, method: :post %></p>
+		</div>
+	</div>
 	<div class="colorlibcopy-agile">
-		<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+		<p>© 2021 Tomohiro Hori</p>
 	</div>
 	<!-- //copyright -->
 	<ul class="colorlib-bubbles">
@@ -42,6 +48,3 @@
 		<li></li>
 	</ul>
 </div>
-	<p><%= link_to "Sign Up!", new_user_registration_path %></p>
-	<p><%= link_to 'Sign in as a guest user！', users_guest_sign_in_path, method: :post, class: "login" %></p>
-	<p><%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %></p>
