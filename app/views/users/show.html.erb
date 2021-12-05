@@ -66,13 +66,44 @@
                 <div class="project-box">
                     <div class="project-box-header">
                         <div class="project-box-header-introduction">
-                            <%= link_to attachment_image_tag(post.user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'50x50'), user_path(post.user.id) %>
+                            <%#= link_to attachment_image_tag(post.user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'50x50'), user_path(post.user.id) %>
+                            <%= link_to image_tag(@user.profile_image, class:"border border-secondary rounded-circle border-0", size:"50x50", fallback: "no_image.jpg"), user_path(post.user.id) %>
                             <%= link_to_if post.user, post.user.name, user_path(post.user.id) %>
                         </div>
-                        <div class="post-action-#{ post.id }">
-                          <%= link_to(content_tag(:i, nil, class: 'fas fa-edit'), edit_post_path(post), remote: true) %>
-                          <%= link_to(content_tag(:i, nil, class: 'fas fa-trash-alt'), post_path(post), method: :delete, remote: true, data: { confirm: '本当に削除しますか？' }) %>
+                    <% if post.user_id == current_user.id %>
+                    <div class="post-action-#{ post.id }">
+                    <div data-toggle="modal" data-target="#editpost<%= post.id %>">
+                        <!--<%#= link_to(content_tag(:i, nil, class: 'fas fa-edit'), edit_post_path(post), remote: true) %>-->
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="editpost<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <%= form_with model: post, method: :patch, remote: true do |f| %>
+                              <div class="modal-body">
+                                <div class="form-group">
+                                    <%= f.text_area :body %>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <%= f.submit "Update Post", class: "btn btn-primary" %>
+                              </div>
+                          <% end %>
                         </div>
+                      </div>
+                    </div>
+                        <%= link_to(content_tag(:i, nil, class: 'fas fa-trash-alt'), post_path(post), method: :delete, remote: true, data: { confirm: '投稿を削除してよろしいでしょうか？' }) %>
+                    </div>
+                    <% end %>
                     </div>
                     <div class="project-box-content-header">
                         <p class="box-content-header "><%=safe_join(post.body.split("\n"),tag(:br))%></p>
@@ -121,7 +152,8 @@
             <div class="messages ">
                 <div class="message-box">
                     <%= link_to (user_path(following_user.id)) do %>
-                        <p><%= attachment_image_tag(following_user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100') %></p>
+                        <p><%#= attachment_image_tag(following_user, :profile_image, format: 'jpeg', size: "50x50", fallback: "no_image.jpg", size:'100x100') %></p>
+                        <p><%= image_tag following_user.profile_image, class:"border border-secondary rounded-circle border-0", size:"50x50", fallback: "no_image.jpg" %></p>
                         <div class="message-content ">
                     <% end %>
                         <div class="message-header ">

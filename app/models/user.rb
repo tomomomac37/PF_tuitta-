@@ -18,6 +18,8 @@ class User < ApplicationRecord
   end
   
   attachment :profile_image
+  
+  has_one_attached :profile_image
         
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy # フォロー取得
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得

@@ -8,10 +8,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :image_id
       t.datetime :deleted_at
       
-      
-      
-      
-      
     end
   end
 end
