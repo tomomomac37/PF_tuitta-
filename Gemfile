@@ -81,3 +81,6 @@ gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
 
 gem "unicorn"
+
+gem 'mini_magick'
+gem 'image_processing'
