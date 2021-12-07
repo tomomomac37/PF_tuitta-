@@ -6,7 +6,9 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :users, through: :likes
   
-  attachment :image
+  # attachment :image
   validates :body, presence: true, length: { maximum: 100 }
+  
+  has_many_attached :images
   
 end
