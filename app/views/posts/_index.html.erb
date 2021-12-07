@@ -50,7 +50,7 @@
                     <div data-toggle="modal" data-target="#postimage<%= post.image_id %>">
                       <%#= attachment_image_tag(post, :image, format: 'jpeg', size: "80x80") %>
                       <% post.images.each do |image| %>
-                      <%= image_tag post.images[0], size:"80x80" if post.images.attached? %>
+                        <%= image_tag post.images[0], size:"80x80" if post.images.attached? %>
                       <% end %>
                     </div>
                     
@@ -65,7 +65,7 @@
                           </div>
                           <div class="modal-body">
                             <%#= attachment_image_tag(post, :image, format: 'jpeg', size: "450x450") %>
-                            <%= image_tag post.images[0], size:"450x450" if post.images.attached? %>
+                            <%= image_tag post.images[0], size:"450x450" if post.images.attached?%>
                           </div>
                         </div>
                       </div>
