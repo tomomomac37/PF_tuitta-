@@ -84,3 +84,5 @@ gem "unicorn"
 
 gem 'mini_magick'
 gem 'image_processing'
+
+gem 'aws-sdk-s3', require: false
