@@ -4,7 +4,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: 1191279fT!
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
   host: localhost
   
 development:
@@ -14,7 +14,7 @@ development:
   database: development
   pool: 5
   username: root
-  password: 1191279fT!
+  password: <%= ENV['RAILS_DATABASE_PASSWORD'] %>
   host: localhost
 
 test:
